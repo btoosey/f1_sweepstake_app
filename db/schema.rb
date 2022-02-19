@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_19_102827) do
+ActiveRecord::Schema.define(version: 2022_02_19_103528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(version: 2022_02_19_102827) do
     t.index ["season_id"], name: "index_races_on_season_id"
   end
 
+  create_table "results", force: :cascade do |t|
+    t.bigint "race_id", null: false
+    t.bigint "constructor_id", null: false
+    t.bigint "driver_id", null: false
+    t.integer "position"
+    t.integer "points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["constructor_id"], name: "index_results_on_constructor_id"
+    t.index ["driver_id"], name: "index_results_on_driver_id"
+    t.index ["race_id"], name: "index_results_on_race_id"
+  end
+
   create_table "seasons", force: :cascade do |t|
     t.integer "year"
     t.datetime "created_at", precision: 6, null: false
@@ -69,4 +82,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_102827) do
 
   add_foreign_key "races", "circuits"
   add_foreign_key "races", "seasons"
+  add_foreign_key "results", "constructors"
+  add_foreign_key "results", "drivers"
+  add_foreign_key "results", "races"
 end
