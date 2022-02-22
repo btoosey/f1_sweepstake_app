@@ -2,7 +2,10 @@ class LeaguesController < ApplicationController
 
   def index
     @leagues = League.all
-    @user = current_user
+  end
+
+  def new
+    @league = League.new
   end
 
 end
