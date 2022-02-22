@@ -1,0 +1,7 @@
+<%= link_to "Create a league", new_user_league_path(@user) %>
+
+<ul>
+  <% @leagues.each do |league| %>
+    <li><%= league.name %></li>
+  <% end %>
+</ul>
