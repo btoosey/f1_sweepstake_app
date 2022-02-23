@@ -1,4 +1,8 @@
 <%= @league.name %>
+
+<%= link_to "Edit",
+    edit_league_path(@league) %>
+
 <%= link_to "Delete League",
     league_path(@league),
     method: :delete,

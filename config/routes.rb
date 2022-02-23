@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'leagues#index'
 
-  resources :leagues, only: [:index, :show, :new, :create, :edit, :destroy]
+  resources :leagues, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 end
