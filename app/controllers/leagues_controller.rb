@@ -22,6 +22,12 @@ class LeaguesController < ApplicationController
     end
   end
 
+  def destroy
+    @league = League.find(params[:id])
+    @league.destroy
+    redirect_to leagues_path
+  end
+
   private
 
   def league_params

@@ -1,1 +1,5 @@
 <%= @league.name %>
+<%= link_to "Delete League",
+    league_path(@league),
+    method: :delete,
+    data: {confirm: "Are you sure?"} %>
