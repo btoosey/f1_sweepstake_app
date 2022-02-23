@@ -4,6 +4,10 @@ class LeaguesController < ApplicationController
     @user = current_user if current_user
   end
 
+  def show
+    @league = League.find(params[:id])
+  end
+
   def new
     @league = League.new
   end
