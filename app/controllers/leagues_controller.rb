@@ -1,11 +1,12 @@
 class LeaguesController < ApplicationController
+  before_action :set_league, only: [:show, :edit, :update, :destroy]
+
   def index
     @leagues = League.all
     @user = current_user if current_user
   end
 
   def show
-    @league = League.find(params[:id])
   end
 
   def new
@@ -23,11 +24,9 @@ class LeaguesController < ApplicationController
   end
 
   def edit
-    @league = League.find(params[:id])
   end
 
   def update
-    @league = League.find(params[:id])
     if @league.update(league_params)
       redirect_to league_path(@league.id)
     else
@@ -36,7 +35,6 @@ class LeaguesController < ApplicationController
   end
 
   def destroy
-    @league = League.find(params[:id])
     @league.destroy
     redirect_to leagues_path
   end
@@ -45,5 +43,9 @@ class LeaguesController < ApplicationController
 
   def league_params
     params.require(:league).permit(:name)
+  end
+
+  def set_league
+    @league = League.find(params[:id])
   end
 end
