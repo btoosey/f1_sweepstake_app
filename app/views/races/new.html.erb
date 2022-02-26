@@ -1,0 +1,6 @@
+<%= simple_form_for @race do |f| %>
+  <%= f.input :name %>
+  <%= f.input :race_date %>
+  <%= f.association :circuit, label_method: :name %>
+  <%= f.button :submit %>
+<% end %>
