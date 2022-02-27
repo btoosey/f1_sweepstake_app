@@ -1,0 +1,11 @@
+<ul>
+  <% @races.each do |race| %>
+    <li>
+      <%= race.name %>
+      <%= link_to "Delete",
+      race,
+      method: :delete,
+      data: {confirm: "Are you sure?"} %>
+    </li>
+  <% end %>
+</ul>
