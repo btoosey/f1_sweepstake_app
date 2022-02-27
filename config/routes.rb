@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: 'leagues#index'
 
   resources :leagues, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :races, only: [:index, :new, :create]
+  resources :races, only: [:index, :new, :create, :destroy]
 end

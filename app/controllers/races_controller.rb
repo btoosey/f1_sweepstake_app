@@ -1,4 +1,6 @@
 class RacesController < ApplicationController
+  before_action :set_race, only: :destroy
+
   def index
     @races = Race.all
   end
@@ -19,10 +21,19 @@ class RacesController < ApplicationController
     end
   end
 
+  def destroy
+    @race.destroy
+    redirect_to races_path
+  end
+
   private
 
   def race_params
     params.require(:race).permit(:name, :race_date, :circuit_id)
+  end
+
+  def set_race
+    @race = Race.find(params[:id])
   end
 
   def reorder_races
