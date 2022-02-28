@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   resources :leagues, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :races, only: [:index, :new, :create, :destroy]
-  resources :drivers, only: [:index]
+  resources :drivers, only: [:index, :new, :create]
 end
