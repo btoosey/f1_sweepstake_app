@@ -3,7 +3,11 @@
 <ul>
   <% @drivers.each do |driver| %>
     <li>
-      <%= driver.forename %> <%= driver.surname %>
+      <%= driver.forename %> <%= driver.surname %> - <%= driver.number %> -
+      <%= link_to "Delete",
+      driver,
+      method: :delete,
+      data: {confirm: "Are you sure?"} %>
     </li>
   <% end %>
 </ul>

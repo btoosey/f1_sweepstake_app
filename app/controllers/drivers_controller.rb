@@ -1,4 +1,6 @@
 class DriversController < ApplicationController
+  before_action :set_driver, only: :destroy
+
   def index
     @drivers = Driver.all
   end
@@ -16,7 +18,16 @@ class DriversController < ApplicationController
     end
   end
 
+  def destroy
+    @driver.destroy
+    redirect_to drivers_path
+  end
+
   private
+
+  def set_driver
+    @driver = Driver.find(params[:id])
+  end
 
   def driver_params
     params.require(:driver).permit(:number, :forename, :surname, :code)
