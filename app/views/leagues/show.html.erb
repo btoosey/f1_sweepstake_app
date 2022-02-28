@@ -8,7 +8,9 @@
     method: :delete,
     data: {confirm: "Are you sure?"} %>
 
-<%= link_to "Join League", league_league_players_path(@league), method: :post %>
+<% unless @league.league_players.where(user: current_user).exists? %>
+  <%= link_to "Join League", league_league_players_path(@league), method: :post %>
+<% end %>
 
 <ul>
   <% @league_players.each do |player| %>
