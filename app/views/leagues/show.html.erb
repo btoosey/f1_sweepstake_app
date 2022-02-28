@@ -7,3 +7,13 @@
     league_path(@league),
     method: :delete,
     data: {confirm: "Are you sure?"} %>
+
+<%= link_to "Join League", league_league_players_path(@league), method: :post %>
+
+<ul>
+  <% @league_players.each do |player| %>
+    <li>
+      <%= player.user.email %>
+    </li>
+  <% end %>
+</ul>
