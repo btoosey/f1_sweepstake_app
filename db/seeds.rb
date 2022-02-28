@@ -15,4 +15,9 @@ Constructor.destroy_all
 require_relative "seeds/003_constructors"
 puts "Constructors generated"
 
+puts "Generating Drivers..."
+Driver.destroy_all
+require_relative "seeds/004_drivers"
+puts "Drivers generated"
+
 puts "Seeds generated!"
