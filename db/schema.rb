@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_25_131126) do
+ActiveRecord::Schema.define(version: 2022_03_01_145323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 2022_02_25_131126) do
     t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "dnf"
+    t.boolean "dsq"
     t.index ["constructor_id"], name: "index_results_on_constructor_id"
     t.index ["driver_id"], name: "index_results_on_driver_id"
     t.index ["race_id"], name: "index_results_on_race_id"
