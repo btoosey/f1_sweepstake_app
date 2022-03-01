@@ -16,6 +16,10 @@
   <% @league_players.each do |player| %>
     <li>
       <%= player.user.email %>
+      <%= link_to "Delete player",
+      league_player_path(player),
+      method: :delete,
+      data: {confirm: "Are you sure?"} %>
     </li>
   <% end %>
 </ul>

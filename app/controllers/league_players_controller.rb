@@ -1,4 +1,6 @@
 class LeaguePlayersController < ApplicationController
+  before_action :set_league_player, only: [:destroy]
+
   def create
     @league = League.find(params[:league_id])
     @user = current_user
@@ -8,5 +10,16 @@ class LeaguePlayersController < ApplicationController
     else
       redirect_to league_path(@league), message: "Unable to join the league"
     end
+  end
+
+  def destroy
+    @league_player.destroy
+    redirect_to leagues_path
+  end
+
+  private
+
+  def set_league_player
+    @league_player = LeaguePlayer.find(params[:id])
   end
 end

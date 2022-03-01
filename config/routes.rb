@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :league_players, only: [:create]
   end
 
+  resources :league_players, only: [:destroy]
+
   resources :races, only: [:index, :new, :create, :destroy]
   resources :drivers, only: [:index, :new, :create, :destroy]
 end
