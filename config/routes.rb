@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :races, only: [:index, :new, :create, :destroy]
   resources :drivers, only: [:index, :new, :create, :destroy]
 
-  resources :results, only: [:new, :create]
+  resources :results, only: [:index, :new, :create]
 end
