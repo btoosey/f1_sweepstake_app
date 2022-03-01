@@ -7,6 +7,7 @@ class LeaguesController < ApplicationController
   end
 
   def show
+    @league_players = @league.league_players.all
   end
 
   def new
