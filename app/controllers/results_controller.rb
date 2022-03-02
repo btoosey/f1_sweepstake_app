@@ -10,6 +10,7 @@ class ResultsController < ApplicationController
 
   def create
     @result = Result.new(result_params)
+    @result.position_to_points(@result.position)
     if @result.save
       redirect_to results_path
     else
