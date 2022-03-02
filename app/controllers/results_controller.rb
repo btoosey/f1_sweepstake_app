@@ -1,5 +1,5 @@
 class ResultsController < ApplicationController
-  before_action :set_result, only: [:edit, :update]
+  before_action :set_result, only: [:edit, :update, :destroy]
 
   def index
     @drivers = Driver.all
@@ -30,6 +30,11 @@ class ResultsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @result.destroy
+    redirect_to results_path
   end
 
   private

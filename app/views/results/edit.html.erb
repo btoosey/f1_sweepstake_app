@@ -7,3 +7,10 @@
   <%= f.input :dsq %>
   <%= f.button :submit %>
 <% end %>
+
+<br><br><br>
+
+<%= link_to "Delete Result",
+    result_path(@result),
+    method: :delete,
+    data: {confirm: "Are you sure?"} %>
