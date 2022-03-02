@@ -1,6 +1,7 @@
 class ResultsController < ApplicationController
   def index
-    @result = Result.all
+    @drivers = Driver.all
+    @results = Result.all
   end
 
   def new

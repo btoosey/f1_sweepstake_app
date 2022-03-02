@@ -1,1 +1,8 @@
 <div>Results Table</div>
+<% @drivers.each do |driver| %>
+  <%= driver.forename %> <%= driver.surname %>
+  <% @results.where(driver: driver).each do |driver_result| %>
+    <%= driver_result.points %>
+  <% end %>
+  <br>
+<% end %>
