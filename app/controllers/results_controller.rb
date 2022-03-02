@@ -1,4 +1,6 @@
 class ResultsController < ApplicationController
+  before_action :set_result, only: [:edit, :update]
+
   def index
     @drivers = Driver.all
     @results = Result.all
@@ -18,7 +20,23 @@ class ResultsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @result.position_to_points(@result.position)
+    if @result.update(result_params)
+      redirect_to results_path
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def set_result
+    @result = Result.find(params[:id])
+  end
 
   def result_params
     params.require(:result).permit(:race_id, :driver_id, :constructor_id, :position)
