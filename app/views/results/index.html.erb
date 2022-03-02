@@ -1,0 +1,10 @@
+<div>Results Table</div>
+<% @drivers.each do |driver| %>
+  <%= driver.forename %> <%= driver.surname %>
+  <% @results.where(driver: driver).sort_by(&:race).each do |driver_result| %>
+    <%= link_to edit_result_path(driver_result) do %>
+      <%= driver_result.points %>
+    <% end %>
+  <% end %>
+  <br>
+<% end %>
