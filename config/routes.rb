@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :leagues, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :league_players, only: [:create]
+    resources :choices, only: [:new, :create]
   end
 
   resources :league_players, only: [:destroy]
