@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_01_145323) do
+ActiveRecord::Schema.define(version: 2022_03_02_202329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,14 @@ ActiveRecord::Schema.define(version: 2022_03_01_145323) do
   create_table "choices", force: :cascade do |t|
     t.bigint "league_id", null: false
     t.bigint "result_id", null: false
-    t.bigint "user_id", null: false
     t.boolean "submitted"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "open"
+    t.bigint "league_player_id"
     t.index ["league_id"], name: "index_choices_on_league_id"
+    t.index ["league_player_id"], name: "index_choices_on_league_player_id"
     t.index ["result_id"], name: "index_choices_on_result_id"
-    t.index ["user_id"], name: "index_choices_on_user_id"
   end
 
   create_table "circuits", force: :cascade do |t|
@@ -114,9 +115,9 @@ ActiveRecord::Schema.define(version: 2022_03_01_145323) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "choices", "league_players"
   add_foreign_key "choices", "leagues"
   add_foreign_key "choices", "results"
-  add_foreign_key "choices", "users"
   add_foreign_key "league_players", "leagues"
   add_foreign_key "league_players", "users"
   add_foreign_key "leagues", "users"
