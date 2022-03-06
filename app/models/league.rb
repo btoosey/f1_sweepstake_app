@@ -1,4 +1,4 @@
 class League < ApplicationRecord
   belongs_to :user
-  has_many :league_players, dependent: :destroy
+  has_many :user_leagues, dependent: :destroy
 end

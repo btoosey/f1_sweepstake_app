@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_02_202329) do
+ActiveRecord::Schema.define(version: 2022_03_06_214537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_202329) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "open"
-    t.bigint "league_player_id"
     t.index ["league_id"], name: "index_choices_on_league_id"
-    t.index ["league_player_id"], name: "index_choices_on_league_player_id"
     t.index ["result_id"], name: "index_choices_on_result_id"
   end
 
@@ -51,15 +49,6 @@ ActiveRecord::Schema.define(version: 2022_03_02_202329) do
     t.string "code", limit: 3
   end
 
-  create_table "league_players", force: :cascade do |t|
-    t.bigint "league_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["league_id"], name: "index_league_players_on_league_id"
-    t.index ["user_id"], name: "index_league_players_on_user_id"
-  end
-
   create_table "leagues", force: :cascade do |t|
     t.string "name"
     t.integer "season"
@@ -68,6 +57,15 @@ ActiveRecord::Schema.define(version: 2022_03_02_202329) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_leagues_on_user_id"
+  end
+
+  create_table "race_drivers", force: :cascade do |t|
+    t.bigint "race_id", null: false
+    t.bigint "team_driver_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["race_id"], name: "index_race_drivers_on_race_id"
+    t.index ["team_driver_id"], name: "index_race_drivers_on_team_driver_id"
   end
 
   create_table "races", force: :cascade do |t|
@@ -84,16 +82,14 @@ ActiveRecord::Schema.define(version: 2022_03_02_202329) do
 
   create_table "results", force: :cascade do |t|
     t.bigint "race_id", null: false
-    t.bigint "constructor_id", null: false
-    t.bigint "driver_id", null: false
     t.integer "position"
     t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "dnf"
     t.boolean "dsq"
-    t.index ["constructor_id"], name: "index_results_on_constructor_id"
-    t.index ["driver_id"], name: "index_results_on_driver_id"
+    t.bigint "race_driver_id"
+    t.index ["race_driver_id"], name: "index_results_on_race_driver_id"
     t.index ["race_id"], name: "index_results_on_race_id"
   end
 
@@ -101,6 +97,24 @@ ActiveRecord::Schema.define(version: 2022_03_02_202329) do
     t.integer "year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "team_drivers", force: :cascade do |t|
+    t.bigint "constructor_id", null: false
+    t.bigint "driver_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["constructor_id"], name: "index_team_drivers_on_constructor_id"
+    t.index ["driver_id"], name: "index_team_drivers_on_driver_id"
+  end
+
+  create_table "user_leagues", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "league_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["league_id"], name: "index_user_leagues_on_league_id"
+    t.index ["user_id"], name: "index_user_leagues_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -115,15 +129,17 @@ ActiveRecord::Schema.define(version: 2022_03_02_202329) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "choices", "league_players"
   add_foreign_key "choices", "leagues"
   add_foreign_key "choices", "results"
-  add_foreign_key "league_players", "leagues"
-  add_foreign_key "league_players", "users"
   add_foreign_key "leagues", "users"
+  add_foreign_key "race_drivers", "races"
+  add_foreign_key "race_drivers", "team_drivers"
   add_foreign_key "races", "circuits"
   add_foreign_key "races", "seasons"
-  add_foreign_key "results", "constructors"
-  add_foreign_key "results", "drivers"
+  add_foreign_key "results", "race_drivers"
   add_foreign_key "results", "races"
+  add_foreign_key "team_drivers", "constructors"
+  add_foreign_key "team_drivers", "drivers"
+  add_foreign_key "user_leagues", "leagues"
+  add_foreign_key "user_leagues", "users"
 end
