@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :league_players, dependent: :destroy
+  has_many :user_leagues, dependent: :destroy
 end
