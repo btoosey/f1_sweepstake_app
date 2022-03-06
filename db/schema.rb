@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_05_215139) do
+ActiveRecord::Schema.define(version: 2022_03_06_214034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_215139) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "open"
-    t.bigint "league_player_id"
     t.index ["league_id"], name: "index_choices_on_league_id"
-    t.index ["league_player_id"], name: "index_choices_on_league_player_id"
     t.index ["result_id"], name: "index_choices_on_result_id"
   end
 
@@ -131,7 +129,6 @@ ActiveRecord::Schema.define(version: 2022_03_05_215139) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "choices", "league_players"
   add_foreign_key "choices", "leagues"
   add_foreign_key "choices", "results"
   add_foreign_key "league_players", "leagues"
