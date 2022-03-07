@@ -1,4 +1,6 @@
 class TeamDriversController < ApplicationController
+  before_action :set_team_driver, only: [:destroy]
+
   def index
     @team_drivers = TeamDriver.all
   end
@@ -16,7 +18,16 @@ class TeamDriversController < ApplicationController
     end
   end
 
+  def destroy
+    @team_driver.destroy
+    redirect_to team_drivers_path
+  end
+
   private
+
+  def set_team_driver
+    @team_driver = TeamDriver.find(params[:id])
+  end
 
   def team_driver_params
     params.require(:team_driver).permit(:driver_id, :constructor_id)
