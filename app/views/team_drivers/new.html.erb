@@ -1,0 +1,5 @@
+<%= simple_form_for @team_driver do |f| %>
+  <%= f.association :driver, label_method: :surname %>
+  <%= f.association :constructor, label_method: :name %>
+  <%= f.button :submit %>
+<% end %>
