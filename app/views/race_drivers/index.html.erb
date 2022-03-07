@@ -1,7 +1,9 @@
+<%= link_to "Create new race_driver", new_race_driver_path %>
+
 <ul>
   <% @race_drivers.each do |race_driver| %>
     <li>
-      <%= race_driver.race.name %> - <%= race_driver.team_driver.driver.full_name %> - <%= race_driver.team_driver.constructor.name %>
+      <%= race_driver.race.season.year %> - <%= race_driver.race.name %> - <%= race_driver.team_driver.driver.full_name %> - <%= race_driver.team_driver.constructor.name %>
     </li>
   <% end %>
 </ul>
