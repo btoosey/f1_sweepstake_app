@@ -1,0 +1,7 @@
+<ul>
+  <% @team_drivers.each do |team_driver| %>
+    <li>
+      <%= team_driver.driver.full_name %> - <%= team_driver.constructor.name %> -
+    </li>
+  <% end %>
+</ul>
