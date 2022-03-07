@@ -4,6 +4,10 @@
   <% @race_drivers.each do |race_driver| %>
     <li>
       <%= race_driver.race.season.year %> - <%= race_driver.race.name %> - <%= race_driver.team_driver.driver.full_name %> - <%= race_driver.team_driver.constructor.name %>
+      <%= link_to "Delete",
+      race_driver,
+      method: :delete,
+      data: {confirm: "Are you sure?"} %>
     </li>
   <% end %>
 </ul>

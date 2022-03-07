@@ -1,4 +1,6 @@
 class RaceDriversController < ApplicationController
+  before_action :set_race_driver, only: [:destroy]
+
   def index
     @race_drivers = RaceDriver.all
   end
@@ -16,7 +18,16 @@ class RaceDriversController < ApplicationController
     end
   end
 
+  def destroy
+    @race_driver.destroy
+    redirect_to race_drivers_path
+  end
+
   private
+
+  def set_race_driver
+    @race_driver = RaceDriver.find(params[:id])
+  end
 
   def race_driver_params
     params.require(:race_driver).permit(:team_driver_id, :race_id)
