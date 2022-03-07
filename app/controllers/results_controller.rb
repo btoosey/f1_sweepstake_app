@@ -44,6 +44,6 @@ class ResultsController < ApplicationController
   end
 
   def result_params
-    params.require(:result).permit(:race_id, :driver_id, :constructor_id, :position)
+    params.require(:result).permit(:race_driver_id, :position)
   end
 end
