@@ -2,8 +2,8 @@ class ResultsController < ApplicationController
   before_action :set_result, only: [:edit, :update, :destroy]
 
   def index
-    @drivers = Driver.all
-    @results = Result.all
+    @drivers = RaceDriver.current_drivers
+    # @results = Result.all
   end
 
   def new
