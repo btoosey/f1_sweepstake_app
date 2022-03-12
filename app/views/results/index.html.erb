@@ -1,6 +1,14 @@
 <div>2022 F1 - Results Table</div>
 <ul>
   <% @drivers.each do |driver| %>
-    <li><%= driver.driver.full_name %></li>
+    <li><%= driver.full_name %></li>
+    <% @results.each do |result| %>
+
+    <% end %>
+    </% @results.where(driver: driver).sort_by(&:race).each do |driver_result| %>
+      </%= link_to edit_result_path(driver_result) do %>
+        </%= driver_result.points %>
+      </% end %>
+    </% end %>
   <% end %>
 </ul>
