@@ -14,4 +14,8 @@ class RaceDriver < ApplicationRecord
     end
     race_drivers
   end
+
+  def to_label
+    "#{team_driver.driver.full_name} - #{team_driver.constructor.name}"
+  end
 end
