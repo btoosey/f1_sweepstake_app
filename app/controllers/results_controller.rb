@@ -58,4 +58,8 @@ class ResultsController < ApplicationController
     end
     team_drivers
   end
+
+  def result_driver
+    race_driver.team_driver.driver
+  end
 end

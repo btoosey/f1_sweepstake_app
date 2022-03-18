@@ -1,14 +1,17 @@
+<% drivers = [] %>
 <div>2022 F1 - Results Table</div>
 <ul>
-  <% @drivers.each do |driver| %>
-    <li><%= driver.full_name %></li>
-    <% @results.each do |result| %>
-
+  <% @race_drivers.each do |race_driver| %>
+    <% unless drivers.include?(race_driver.team_driver.driver) %>
+      <li><%= race_driver.team_driver.driver.full_name %></li>
+      <% @results.each do |result| %>
+        <% result.each do |result| %>
+          <% if result.race_driver.team_driver == race_driver.team_driver %>
+            <%= result.points %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% drivers << race_driver.team_driver.driver %>
     <% end %>
-    </% @results.where(driver: driver).sort_by(&:race).each do |driver_result| %>
-      </%= link_to edit_result_path(driver_result) do %>
-        </%= driver_result.points %>
-      </% end %>
-    </% end %>
   <% end %>
 </ul>
