@@ -4,7 +4,7 @@ constructors_list = [
   ["BWT Alpine F1 Team"],
   ["Aston Martin Aramco Cognizant F1 Team"],
   ["Scuderia Ferrari"],
-  ["Uralkali Haas F1 Team"],
+  ["Haas F1 Team"],
   ["McLaren F1 Team"],
   ["Mercedes-AMG Petronas F1 Team"],
   ["Oracle Red Bull Racing"],

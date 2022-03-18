@@ -18,7 +18,9 @@ drivers_list = [
 [24, "Guanyu", "Zhou", "ZHO"],
 [77, "Valtteri", "Bottas", "BOT"],
 [9, "Nikita", "Mazepin", "MAZ"],
-[47, "Mick", "Schumacher", "MSC"]
+[47, "Mick", "Schumacher", "MSC"],
+[20, "Kevin", "Magnussen", "MAG"],
+[27, "Nico", "Hulkenberg", "HUL"]
 ]
 
 drivers_list.each do |driver|
