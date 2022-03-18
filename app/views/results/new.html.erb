@@ -1,7 +1,5 @@
 <%= simple_form_for @result do |f| %>
-  <%= f.association :race %>
-  <%= f.association :driver, label_method: :surname %>
-  <%= f.association :constructor %>
+  <%= f.association :race_driver, label_method: :to_label %>
   <%= f.input :position %>
   <%= f.input :dnf %>
   <%= f.input :dsq %>

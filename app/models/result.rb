@@ -1,7 +1,5 @@
 class Result < ApplicationRecord
-  belongs_to :race
-  belongs_to :constructor
-  belongs_to :driver
+  belongs_to :race_driver
 
   def position_to_points(position)
     case position

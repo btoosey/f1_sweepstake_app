@@ -1,10 +1,17 @@
-<div>Results Table</div>
-<% @drivers.each do |driver| %>
-  <%= driver.forename %> <%= driver.surname %>
-  <% @results.where(driver: driver).sort_by(&:race).each do |driver_result| %>
-    <%= link_to edit_result_path(driver_result) do %>
-      <%= driver_result.points %>
+<% drivers = [] %>
+<div>2022 F1 - Results Table</div>
+<ul>
+  <% @race_drivers.each do |race_driver| %>
+    <% unless drivers.include?(race_driver.team_driver.driver) %>
+      <li><%= race_driver.team_driver.driver.full_name %></li>
+      <% @results.each do |result| %>
+        <% result.each do |result| %>
+          <% if result.race_driver.team_driver == race_driver.team_driver %>
+            <%= result.points %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% drivers << race_driver.team_driver.driver %>
     <% end %>
   <% end %>
-  <br>
-<% end %>
+</ul>

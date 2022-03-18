@@ -2,8 +2,12 @@ class ResultsController < ApplicationController
   before_action :set_result, only: [:edit, :update, :destroy]
 
   def index
-    @drivers = Driver.all
-    @results = Result.all
+    @race_drivers = RaceDriver.current_race_drivers
+    @drivers = list_current_drivers(@race_drivers)
+    @results = []
+    @race_drivers.each do |race_driver|
+      @results << Result.where(race_driver: race_driver)
+    end
   end
 
   def new
@@ -44,6 +48,18 @@ class ResultsController < ApplicationController
   end
 
   def result_params
-    params.require(:result).permit(:race_id, :driver_id, :constructor_id, :position)
+    params.require(:result).permit(:race_driver_id, :position)
+  end
+
+  def list_current_drivers(race_drivers)
+    team_drivers = []
+    race_drivers.each do |race_driver|
+      team_drivers << race_driver.team_driver.driver unless team_drivers.include?(race_driver.team_driver.driver)
+    end
+    team_drivers
+  end
+
+  def result_driver
+    race_driver.team_driver.driver
   end
 end
