@@ -1,23 +1,27 @@
+puts "Destroying instances..."
+require_relative "seeds/000_destroy_all"
+
 puts "Generating seeds..."
 
+puts "Generating TeamDrivers..."
+require_relative "seeds/005_team_drivers"
+puts "TeamDrivers generated"
+
 puts "Generating Seasons..."
-Season.destroy_all
 require_relative "seeds/001_seasons"
 puts "Seasons generated"
 
 puts "Generating Circuits..."
-Circuit.destroy_all
 require_relative "seeds/002_circuits"
 puts "Circuits generated"
 
 puts "Generating Constructors..."
-Constructor.destroy_all
 require_relative "seeds/003_constructors"
 puts "Constructors generated"
 
 puts "Generating Drivers..."
-Driver.destroy_all
 require_relative "seeds/004_drivers"
 puts "Drivers generated"
+
 
 puts "Seeds generated!"
