@@ -3,10 +3,6 @@ require_relative "seeds/000_destroy_all"
 
 puts "Generating seeds..."
 
-puts "Generating TeamDrivers..."
-require_relative "seeds/005_team_drivers"
-puts "TeamDrivers generated"
-
 puts "Generating Seasons..."
 require_relative "seeds/001_seasons"
 puts "Seasons generated"
@@ -23,5 +19,12 @@ puts "Generating Drivers..."
 require_relative "seeds/004_drivers"
 puts "Drivers generated"
 
+puts "Generating TeamDrivers..."
+require_relative "seeds/005_team_drivers"
+puts "TeamDrivers generated"
+
+puts "Generating Races..."
+require_relative "seeds/006_races"
+puts "Races generated"
 
 puts "Seeds generated!"
