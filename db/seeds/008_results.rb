@@ -1,28 +1,32 @@
-results_list = [
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "LEC").first)).first, 1, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "SAI").first)).first, 2, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "HAM").first)).first, 3, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "RUS").first)).first, 4, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "MAG").first)).first, 5, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "BOT").first)).first, 6, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "OCO").first)).first, 7, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "TSU").first)).first, 8, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "ALO").first)).first, 9, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "ZHO").first)).first, 10, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "MSC").first)).first, 11, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "STR").first)).first, 12, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "ALB").first)).first, 13, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "RIC").first)).first, 14, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "NOR").first)).first, 15, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "LAT").first)).first, 16, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "HUL").first)).first, 17, false, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "PER").first)).first, 18, true, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "VER").first)).first, 19, true, false],
-  [RaceDriver.where(race: Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, team_driver: TeamDriver.where(driver: Driver.where(code: "GAS").first)).first, 20, true, false]
+race_list = [
+  "Formula 1 Gulf Air Bahrain Grand Prix"
 ]
 
-results_list.each do |result|
-  Result.create(race_driver: result[0], position: result[1], dnf: result[2], dsq: result[3]) do |new_result|
+results_list = [
+  [2022, race_list[0], "LEC", 1, false, false],
+  [2022, race_list[0], "SAI", 2, false, false],
+  [2022, race_list[0], "HAM", 3, false, false],
+  [2022, race_list[0], "RUS", 4, false, false],
+  [2022, race_list[0], "MAG", 5, false, false],
+  [2022, race_list[0], "BOT", 6, false, false],
+  [2022, race_list[0], "OCO", 7, false, false],
+  [2022, race_list[0], "TSU", 8, false, false],
+  [2022, race_list[0], "ALO", 9, false, false],
+  [2022, race_list[0], "ZHO", 10, false, false],
+  [2022, race_list[0], "MSC", 11, false, false],
+  [2022, race_list[0], "STR", 12, false, false],
+  [2022, race_list[0], "ALB", 13, false, false],
+  [2022, race_list[0], "RIC", 14, false, false],
+  [2022, race_list[0], "NOR", 15, false, false],
+  [2022, race_list[0], "LAT", 16, false, false],
+  [2022, race_list[0], "HUL", 17, false, false],
+  [2022, race_list[0], "PER", 18, true, false],
+  [2022, race_list[0], "VER", 19, true, false],
+  [2022, race_list[0], "GAS", 20, true, false],
+]
+
+results_list.each do |details|
+  Result.create(race_driver: RaceDriver.where(race: Race.where(season: Season.where(year: details[0]).first, name: details[1]).first, team_driver: TeamDriver.where(driver: Driver.where(code: details[2]).first)).first, position: details[3], dnf: details[4], dsq: details[5]) do |new_result|
     new_result.position_to_points(new_result.position)
   end
 end
