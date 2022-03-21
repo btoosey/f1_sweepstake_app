@@ -1,26 +1,30 @@
-race_drivers_list = [
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Mercedes-AMG Petronas F1 Team"), driver: Driver.where(code: "HAM")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Mercedes-AMG Petronas F1 Team"), driver: Driver.where(code: "RUS")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Oracle Red Bull Racing"), driver: Driver.where(code: "VER")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Oracle Red Bull Racing"), driver: Driver.where(code: "PER")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Scuderia Ferrari"), driver: Driver.where(code: "LEC")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Scuderia Ferrari"), driver: Driver.where(code: "SAI")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "McLaren F1 Team"), driver: Driver.where(code: "NOR")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "McLaren F1 Team"), driver: Driver.where(code: "RIC")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "BWT Alpine F1 Team"), driver: Driver.where(code: "OCO")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "BWT Alpine F1 Team"), driver: Driver.where(code: "ALO")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Scuderia AlphaTauri"), driver: Driver.where(code: "TSU")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Scuderia AlphaTauri"), driver: Driver.where(code: "GAS")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Aston Martin Aramco Cognizant F1 Team"), driver: Driver.where(code: "HUL")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Aston Martin Aramco Cognizant F1 Team"), driver: Driver.where(code: "STR")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Williams Racing"), driver: Driver.where(code: "ALB")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Williams Racing"), driver: Driver.where(code: "LAT")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Alfa Romeo F1 Team Orlen"), driver: Driver.where(code: "BOT")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Alfa Romeo F1 Team Orlen"), driver: Driver.where(code: "ZHO")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Haas F1 Team"), driver: Driver.where(code: "MAG")).first],
-  [Race.where(season: Season.where(year: 2022).first, name: "Formula 1 Gulf Air Bahrain Grand Prix").first, TeamDriver.where(constructor: Constructor.where(name: "Haas F1 Team"), driver: Driver.where(code: "MSC")).first]
+race_list = [
+  "Formula 1 Gulf Air Bahrain Grand Prix"
 ]
 
-race_drivers_list.each do |race_driver|
-  RaceDriver.create(race: race_driver[0], team_driver: race_driver[1])
+race_drivers_list = [
+  [2022, race_list[0], "Mercedes-AMG Petronas F1 Team", "HAM"],
+  [2022, race_list[0], "Mercedes-AMG Petronas F1 Team", "RUS"],
+  [2022, race_list[0], "Oracle Red Bull Racing", "VER"],
+  [2022, race_list[0], "Oracle Red Bull Racing", "PER"],
+  [2022, race_list[0], "Scuderia Ferrari", "LEC"],
+  [2022, race_list[0], "Scuderia Ferrari", "SAI"],
+  [2022, race_list[0], "McLaren F1 Team", "NOR"],
+  [2022, race_list[0], "McLaren F1 Team", "RIC"],
+  [2022, race_list[0], "BWT Alpine F1 Team", "OCO"],
+  [2022, race_list[0], "BWT Alpine F1 Team", "ALO"],
+  [2022, race_list[0], "Scuderia AlphaTauri", "GAS"],
+  [2022, race_list[0], "Scuderia AlphaTauri", "TSU"],
+  [2022, race_list[0], "Aston Martin Aramco Cognizant F1 Team", "STR"],
+  [2022, race_list[0], "Aston Martin Aramco Cognizant F1 Team", "HUL"],
+  [2022, race_list[0], "Williams Racing", "ALB"],
+  [2022, race_list[0], "Williams Racing", "LAT"],
+  [2022, race_list[0], "Alfa Romeo F1 Team Orlen", "BOT"],
+  [2022, race_list[0], "Alfa Romeo F1 Team Orlen", "ZHO"],
+  [2022, race_list[0], "Haas F1 Team", "MAG"],
+  [2022, race_list[0], "Haas F1 Team", "MSC"]
+]
+
+race_drivers_list.each do |details|
+  RaceDriver.create(race: Race.where(season: Season.where(year: details[0]).first, name: details[1]).first, team_driver: TeamDriver.where(constructor: Constructor.where(name: details[2]), driver: Driver.where(code: details[3])).first)
 end
