@@ -31,4 +31,8 @@ puts "Generating RaceDrivers..."
 require_relative "seeds/007_race_drivers"
 puts "RaceDrivers generated"
 
+puts "Generating Results..."
+require_relative "seeds/008_results"
+puts "Results generated"
+
 puts "Seeds generated!"
