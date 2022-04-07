@@ -1,5 +1,6 @@
 races_list = [
-[Season.where(year: 2022).first, Circuit.where(name: "Bahrain International Circuit").first, 1, "Formula 1 Gulf Air Bahrain Grand Prix", Date.new(2022,3,20)]
+  [Season.where(year: 2022).first, Circuit.where(name: "Bahrain International Circuit").first, 1, "Formula 1 Gulf Air Bahrain Grand Prix", Date.new(2022,3,20)]
+  [Season.where(year: 2022).first, Circuit.where(name: "Jeddah Corniche Circuit").first, 2, "Formula 1 STC Saudi Arabian Grand Prix", Date.new(2022,3,27)]
 ]
 
 races_list.each do |race|
