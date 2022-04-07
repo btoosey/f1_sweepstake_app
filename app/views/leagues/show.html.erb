@@ -9,7 +9,7 @@
     data: {confirm: "Are you sure?"} %>
 
 <% if @league.user_leagues.where(user: current_user).exists? %>
-    <%= link_to "Make a choice", new_league_choice_path(@league) %>
+    <%= link_to "Make a choice", new_user_league_choice_path(@league) %>
   <% else %>
     <%= link_to "Join League", league_user_leagues_path(@league), method: :post %>
 <% end %>
@@ -25,3 +25,7 @@
     </li>
   <% end %>
 </ul>
+
+<% @races.each do |race| %>
+  <%= race.name %>
+<% end %>
