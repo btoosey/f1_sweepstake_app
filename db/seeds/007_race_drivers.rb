@@ -22,7 +22,7 @@ race_drivers_list = [
   [2022, race_list[0], "Alfa Romeo F1 Team Orlen", "BOT"],
   [2022, race_list[0], "Alfa Romeo F1 Team Orlen", "ZHO"],
   [2022, race_list[0], "Haas F1 Team", "MAG"],
-  [2022, race_list[0], "Haas F1 Team", "MSC"]
+  [2022, race_list[0], "Haas F1 Team", "MSC"],
 
   [2022, race_list[1], "Mercedes-AMG Petronas F1 Team", "HAM"],
   [2022, race_list[1], "Mercedes-AMG Petronas F1 Team", "RUS"],
