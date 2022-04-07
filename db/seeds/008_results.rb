@@ -23,6 +23,27 @@ results_list = [
   [2022, race_list[0], "PER", 18, true, false],
   [2022, race_list[0], "VER", 19, true, false],
   [2022, race_list[0], "GAS", 20, true, false],
+
+  [2022, race_list[0], "VER", 1, false, false],
+  [2022, race_list[0], "LEC", 2, false, false],
+  [2022, race_list[0], "SAI", 3, false, false],
+  [2022, race_list[0], "PER", 4, false, false],
+  [2022, race_list[0], "RUS", 5, false, false],
+  [2022, race_list[0], "OCO", 6, false, false],
+  [2022, race_list[0], "NOR", 7, false, false],
+  [2022, race_list[0], "GAS", 8, false, false],
+  [2022, race_list[0], "MAG", 9, false, false],
+  [2022, race_list[0], "HAM", 10, false, false],
+  [2022, race_list[0], "ZHO", 11, false, false],
+  [2022, race_list[0], "HUL", 12, false, false],
+  [2022, race_list[0], "STR", 13, false, false],
+  [2022, race_list[0], "ALB", 14, true, false],
+  [2022, race_list[0], "BOT", 15, true, false],
+  [2022, race_list[0], "ALO", 16, true, false],
+  [2022, race_list[0], "RIC", 17, true, false],
+  [2022, race_list[0], "LAT", 18, true, false],
+  [2022, race_list[0], "TSU", 19, false, false],
+  [2022, race_list[0], "MSC", 20, false, false],
 ]
 
 results_list.each do |details|
