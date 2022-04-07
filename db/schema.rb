@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_231157) do
+ActiveRecord::Schema.define(version: 2022_04_07_155909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_231157) do
     t.boolean "dnf"
     t.boolean "dsq"
     t.bigint "race_driver_id"
+    t.boolean "dns"
     t.index ["race_driver_id"], name: "index_results_on_race_driver_id"
   end
 
