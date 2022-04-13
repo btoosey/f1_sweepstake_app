@@ -1,5 +1,7 @@
 race_list = [
-  "Formula 1 Gulf Air Bahrain Grand Prix"
+  "Gulf Air Bahrain Grand Prix",
+  "Jeddah Corniche Circuit",
+  "Albert Park Circuit"
 ]
 
 race_drivers_list = [
