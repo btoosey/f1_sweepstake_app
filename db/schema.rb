@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_155909) do
+ActiveRecord::Schema.define(version: 2022_04_13_145917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "choices", force: :cascade do |t|
-    t.bigint "league_id", null: false
-    t.bigint "result_id", null: false
     t.boolean "submitted"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "open"
-    t.index ["league_id"], name: "index_choices_on_league_id"
-    t.index ["result_id"], name: "index_choices_on_result_id"
+    t.bigint "user_league_id", null: false
+    t.bigint "race_driver_id", null: false
+    t.index ["race_driver_id"], name: "index_choices_on_race_driver_id"
+    t.index ["user_league_id"], name: "index_choices_on_user_league_id"
   end
 
   create_table "circuits", force: :cascade do |t|
@@ -128,8 +128,8 @@ ActiveRecord::Schema.define(version: 2022_04_07_155909) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "choices", "leagues"
-  add_foreign_key "choices", "results"
+  add_foreign_key "choices", "race_drivers"
+  add_foreign_key "choices", "user_leagues"
   add_foreign_key "leagues", "users"
   add_foreign_key "race_drivers", "races"
   add_foreign_key "race_drivers", "team_drivers"

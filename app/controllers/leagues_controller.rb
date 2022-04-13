@@ -9,6 +9,7 @@ class LeaguesController < ApplicationController
   def show
     @user_leagues = @league.user_leagues.all
     @races = Race.season_race_list(2022)
+    @choice = Choice.new
   end
 
   def new
