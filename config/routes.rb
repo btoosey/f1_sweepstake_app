@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :choices, only: [:new, :create]
   end
 
+  resources :choices
   resources :races, only: [:index, :new, :create, :destroy]
   resources :drivers, only: [:index, :new, :create, :destroy]
   resources :team_drivers, only: [:index, :new, :create, :destroy]
