@@ -18,14 +18,18 @@
   <% @user_leagues.each do |player| %>
     <li>
       <%= player.user.email %>
-      <%= link_to "Delete player",
-      user_league_path(player),
-      method: :delete,
-      data: {confirm: "Are you sure?"} %>
     </li>
   <% end %>
 </ul>
 
 <% @races.each do |race| %>
   <%= race.name %>
+  <ul>
+    <% @user_leagues.each do |player| %>
+      <li>
+        <%= link_to "Make a Choice", new_user_league_choice_path(player, @race) %>
+        <%= player.user.email %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
