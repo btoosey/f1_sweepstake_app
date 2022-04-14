@@ -1,7 +1,7 @@
 race_list = [
   "Gulf Air Bahrain Grand Prix",
-  "Jeddah Corniche Circuit",
-  "Albert Park Circuit"
+  "STC Saudi Arabian Grand Prix",
+  "Heineken Australian Grand Prix"
 ]
 
 results_list = [
