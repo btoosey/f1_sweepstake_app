@@ -4,8 +4,8 @@ class RaceDriver < ApplicationRecord
   has_one :result
 
   def self.current_race_drivers
-    season = Season.where(year: Date.today.year)
-    races = Race.where(season: season.first)
+    season = Season.where(year: Date.today.year).first
+    races = Race.where(season: season)
     race_drivers = []
     races.each do |race|
       RaceDriver.where(race: race).each do |race_driver|
