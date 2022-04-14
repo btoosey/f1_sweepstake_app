@@ -1,4 +1,4 @@
-<%= simple_form_for @choice do |f| %>
+<%= simple_form_for [@user_league, @choice] do |f| %>
   <%= f.association :race_driver %>
   <%= f.button :submit %>
 <% end %>

@@ -8,9 +8,7 @@
     method: :delete,
     data: {confirm: "Are you sure?"} %>
 
-<% if @league.user_leagues.where(user: current_user).exists? %>
-    <%= link_to "Make a choice", new_user_league_choice_path(@league) %>
-  <% else %>
+<% unless @league.user_leagues.where(user: current_user).exists? %>
     <%= link_to "Join League", league_user_leagues_path(@league), method: :post %>
 <% end %>
 
@@ -27,7 +25,7 @@
   <ul>
     <% @user_leagues.each do |player| %>
       <li>
-        <%= link_to "Make a Choice", new_user_league_choice_path(player, race) %>
+        <%= link_to "Make a Choice", new_user_league_choice_path(race, player) %>
         <%= player.user.email %>
       </li>
     <% end %>
