@@ -1,6 +1,6 @@
 race_list = [
   "Gulf Air Bahrain Grand Prix",
-  "JSTC Saudi Arabian Grand Prix",
+  "STC Saudi Arabian Grand Prix",
   "Heineken Australian Grand Prix"
 ]
 
