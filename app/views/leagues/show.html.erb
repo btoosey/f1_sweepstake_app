@@ -28,7 +28,7 @@
     <% @user_leagues.each do |player| %>
       <li>
         <% unless Choice.where(user_league: player, race_driver: RaceDriver.where(race: race)).first %>
-          <%= link_to "Make a Choice", new_user_league_choice_path(player, race) %>
+          <%= link_to "Make a Choice", new_user_league_choice_path(player, race: race)%>
         <% end %>
         <%= player.user.email %>
       </li>

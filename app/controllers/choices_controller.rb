@@ -1,7 +1,7 @@
 class ChoicesController < ApplicationController
   def new
     @choice = Choice.new
-    @race_drivers = RaceDriver.where(race: @race)
+    @current_race = Race.find(params[:race])
     @user_league = UserLeague.find(params[:user_league_id])
   end
 
