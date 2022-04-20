@@ -25,7 +25,7 @@
   <ul>
     <% @user_leagues.each do |player| %>
       <li>
-        <%= link_to "Make a Choice", new_user_league_choice_path(race, player) %>
+        <%= link_to "Make a Choice", new_user_league_choice_path(player, race) %>
         <%= player.user.email %>
       </li>
     <% end %>
