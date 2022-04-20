@@ -6,4 +6,13 @@ class UserLeague < ApplicationRecord
 
   validates :league, presence: true, uniqueness: { scope: :user, message: "You have already joined this league" }
   accepts_nested_attributes_for :choices
+
+  def calculate_points
+    points = 0
+    choices = Choice.where(user_league: self)
+    choices.each do |choice|
+      points += Result.where(race_driver: choice.race_driver).first.points
+    end
+    points
+  end
 end
