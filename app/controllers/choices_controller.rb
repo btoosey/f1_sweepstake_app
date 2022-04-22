@@ -1,4 +1,10 @@
 class ChoicesController < ApplicationController
+
+  before_action :set_choice, only: [:show]
+
+  def show
+  end
+
   def new
     @choice = Choice.new
     @current_race = Race.find(params[:race])
@@ -22,5 +28,9 @@ class ChoicesController < ApplicationController
 
   def choice_params
     params.require(:choice).permit(:race_driver_id, :user_league_id)
+  end
+
+  def set_choice
+    @choice = Choice.find(params[:id])
   end
 end
