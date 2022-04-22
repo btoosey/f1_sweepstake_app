@@ -1,6 +1,5 @@
 class ChoicesController < ApplicationController
-
-  before_action :set_choice, only: [:show]
+  before_action :set_choice, only: [:show, :edit, :update]
 
   def show
   end
@@ -21,6 +20,17 @@ class ChoicesController < ApplicationController
       redirect_to leagues_path
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @choice.update(choice_params)
+      redirect_to league_path(@choice.user_league.league.id)
+    else
+      render :show
     end
   end
 
