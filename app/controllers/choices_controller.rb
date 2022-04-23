@@ -14,7 +14,7 @@ class ChoicesController < ApplicationController
     @choice = Choice.new(choice_params)
     @user_league = UserLeague.find(params[:user_league_id])
     @choice.user_league = @user_league
-    @choice.submitted = false
+    @choice.locked = false
 
     if @choice.save
       redirect_to leagues_path
