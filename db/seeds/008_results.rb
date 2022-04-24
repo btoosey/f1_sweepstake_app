@@ -1,7 +1,8 @@
 race_list = [
   "Gulf Air Bahrain Grand Prix",
   "STC Saudi Arabian Grand Prix",
-  "Heineken Australian Grand Prix"
+  "Heineken Australian Grand Prix",
+  "Rolex Gran Premio Del Made In Italy E Dell'Emilia-Romagna"
 ]
 
 results_list = [
