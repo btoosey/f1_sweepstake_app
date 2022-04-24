@@ -2,7 +2,7 @@ circuits_list = [
   ["Bahrain International Circuit", "Sakhir", "Bahrain"],
   ["Jeddah Corniche Circuit", "Jeddah", "Saudi Arabia"],
   ["Albert Park Circuit", "Melbourne", "Australia"],
-  ["Imola Circuit", "Imola", "Italy"],
+  ["Autodromo Enzo e Dino Ferrari", "Imola", "Italy"],
   ["Miami International Autodrome", "Miami Gardens", "United States"],
   ["Circuit de Barcelona-Catalunya", "Montmeló", "Spain"],
   ["Circuit de Monaco", "Monte Carlo", "Monaco"],
