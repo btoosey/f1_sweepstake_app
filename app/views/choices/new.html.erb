@@ -1,4 +1,5 @@
-<%= simple_form_for @choice do |f| %>
-  <%= f.association :race_driver %>
+<%= simple_form_for [@user_league, @choice] do |f| %>
+  <%= f.association :race_driver, collection: RaceDriver.where(race: @current_race)%>
   <%= f.button :submit %>
 <% end %>
+

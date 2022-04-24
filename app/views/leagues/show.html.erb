@@ -1,23 +1,22 @@
 <%= @league.name %>
 
-<%= link_to "Edit",
-    edit_league_path(@league) %>
+<%= link_to "Edit", edit_league_path(@league) %>
 
 <%= link_to "Delete League",
     league_path(@league),
     method: :delete,
     data: {confirm: "Are you sure?"} %>
 
-<% if @league.user_leagues.where(user: current_user).exists? %>
-    <%= link_to "Make a choice", new_user_league_choice_path(@league) %>
-  <% else %>
+<% unless @league.user_leagues.where(user: current_user).exists? %>
     <%= link_to "Join League", league_user_leagues_path(@league), method: :post %>
 <% end %>
 
 <ul>
+  <div>Standings</div>
   <% @user_leagues.each do |player| %>
     <li>
       <%= player.user.email %>
+      <%= player.calculate_points %>
     </li>
   <% end %>
 </ul>
@@ -27,7 +26,13 @@
   <ul>
     <% @user_leagues.each do |player| %>
       <li>
-        <%= link_to "Make a Choice", new_user_league_choice_path(player, race) %>
+        <% if choice = Choice.where(user_league: player, race_driver: RaceDriver.where(race: race)).first %>
+          <%= link_to choice_path(choice) do %>
+            <% choice.race_driver.team_driver.driver.code %>
+          <% end %>
+        <% else %>
+          <%= link_to "Make a Choice", new_user_league_choice_path(player, race: race)%>
+        <% end %>
         <%= player.user.email %>
       </li>
     <% end %>
