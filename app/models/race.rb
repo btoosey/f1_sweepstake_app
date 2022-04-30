@@ -21,4 +21,10 @@ class Race < ApplicationRecord
       race.save
     end
   end
+
+  def self.upcoming_race
+    future_races = Race.where("race_date >= ?", DateTime.now)
+    future_races.sort_by(&:race_date)
+    future_races.first
+  end
 end
