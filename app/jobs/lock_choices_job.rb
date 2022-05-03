@@ -9,6 +9,7 @@ class LockChoicesJob < ApplicationJob
       if upcoming_race.race_date - DateTime.now <= 3
         choices.each do |choice|
           choice.locked = true
+          choice.save!
         end
       end
     end

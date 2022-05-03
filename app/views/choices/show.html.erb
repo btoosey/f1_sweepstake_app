@@ -1,4 +1,4 @@
-<% if Race.upcoming_race == @choice.race_driver.race %>
+<% if @current_race == Race.upcoming_race && @choice.locked == false %>
   <%= link_to "Edit",
       edit_choice_path(@choice) %>
 <% else %>
