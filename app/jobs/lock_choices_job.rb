@@ -1,7 +1,7 @@
 class LockChoicesJob < ApplicationJob
   queue_as :default
 
-  def perform(_)
+  def perform(*args)
     upcoming_race = Race.upcoming_race
     race_drivers = RaceDriver.where(race: upcoming_race)
     race_drivers.each do |race_driver|

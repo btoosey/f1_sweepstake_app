@@ -1,3 +1,7 @@
 lock_choices:
   cron: "0 22 * * 5"
   class: "LockChoicesJob"
+
+lock_previous_race_choices:
+  cron: "59 23 * * 5"
+  class: "LockPreviousRaceChoicesJob"
