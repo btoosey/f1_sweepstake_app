@@ -3,7 +3,7 @@ class RandomizeUnchosenChoicesJob < ApplicationJob
 
   def perform(*args)
     upcoming_race = Race.upcoming_race
-    return unless upcoming_race.race_date - DateTime.now <= 3
+    return unless upcoming_race.race_date <= DateTime.now + 3
 
     leagues = League.where(season: Season.where(year: 2022).first)
     leagues.each do |league|
@@ -12,11 +12,12 @@ class RandomizeUnchosenChoicesJob < ApplicationJob
       user_leagues.each do |user_league|
         temp = 0
         race_drivers.each do |race_driver|
-          break if Choice.where(user_league: user_league, race_driver: race_driver.first)
+          break unless Choice.where(user_league: user_league, race_driver: race_driver).empty?
 
           temp += 1
+          puts temp
         end
-        Choice.generateRandomChoice(upcoming_race, user_league) if temp == 20
+        Choice.generate_random_choice(upcoming_race, user_league) if temp == 20
       end
     end
   end
