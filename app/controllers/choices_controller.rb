@@ -36,10 +36,6 @@ class ChoicesController < ApplicationController
 
   private
 
-  def update_locked_status(choice)
-    choice.locked = true if choice.race_driver.race.race_date >= (DateTime.now - DateTime.new(0, 0, 0, 1))
-  end
-
   def choice_params
     params.require(:choice).permit(:race_driver_id, :user_league_id)
   end

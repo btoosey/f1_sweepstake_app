@@ -11,7 +11,9 @@ class UserLeague < ApplicationRecord
     points = 0
     choices = Choice.where(user_league: self)
     choices.each do |choice|
-      points += Result.where(race_driver: choice.race_driver).first.points
+      unless Result.where(race_driver: choice.race_driver).empty?
+        points += Result.where(race_driver: choice.race_driver).first.points
+      end
     end
     points
   end
