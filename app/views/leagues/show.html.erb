@@ -31,7 +31,9 @@
             <% choice.race_driver.team_driver.driver.code %>
           <% end %>
         <% else %>
-          <%= link_to "Make a Choice", new_user_league_choice_path(player, race: race)%>
+          <% if Race.upcoming_race == race %>
+            <%= link_to "Make a Choice", new_user_league_choice_path(player, race: race)%>
+          <% end %>
         <% end %>
         <%= player.user.email %>
       </li>

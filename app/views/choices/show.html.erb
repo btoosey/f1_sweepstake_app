@@ -1,2 +1,6 @@
-<%= link_to "Edit",
-    edit_choice_path(@choice) %>
+<% if @current_race == Race.upcoming_race && @choice.locked == false %>
+  <%= link_to "Edit",
+      edit_choice_path(@choice) %>
+<% else %>
+  <%= @choice.race_driver.team_driver.driver.full_name %>
+<% end %>

@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.0'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.1'
+gem 'rails', '~> 7.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -31,7 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 
 gem 'autoprefixer-rails', '10.2.5'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 5.15.1'
 gem 'simple_form'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
@@ -62,3 +62,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "sidekiq"
+gem "sidekiq-cron", "~> 1.3"

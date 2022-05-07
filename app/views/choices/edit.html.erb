@@ -1,4 +1,9 @@
-<%= simple_form_for @choice do |f| %>
-  <%= f.association :race_driver, collection: RaceDriver.where(race: @choice.race_driver.race)%>
-  <%= f.submit %>
+<% unless @choice.locked == false %>
+  <%= simple_form_for @choice do |f| %>
+    <%= f.association :race_driver, collection: RaceDriver.where(race: @choice.race_driver.race)%>
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  <p>Unable to edit this choice</p>
 <% end %>
+
