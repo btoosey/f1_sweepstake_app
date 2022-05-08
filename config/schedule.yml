@@ -3,7 +3,7 @@ lock_choices:
   class: "LockChoicesJob"
 
 randomize_unchosen_choices:
-  cron: "* * * * 6"
+  cron: "1 22 * * 5"
   class: "RandomizeUnchosenChoicesJob"
 
 lock_previous_race_choices:
