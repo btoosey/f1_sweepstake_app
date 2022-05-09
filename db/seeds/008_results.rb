@@ -88,7 +88,28 @@ results_list = [
   [2022, race_list[3], "MSC", 17, false, false, false],
   [2022, race_list[3], "RIC", 18, false, false, false],
   [2022, race_list[3], "ALO", 19, true, false, false],
-  [2022, race_list[3], "SAI", 20, true, false, false]
+  [2022, race_list[3], "SAI", 20, true, false, false],
+
+  [2022, race_list[4], "VER", 1, false, false, false],
+  [2022, race_list[4], "LEC", 2, false, false, false],
+  [2022, race_list[4], "SAI", 3, false, false, false],
+  [2022, race_list[4], "PER", 4, false, false, false],
+  [2022, race_list[4], "RUS", 5, false, false, false],
+  [2022, race_list[4], "HAM", 6, false, false, false],
+  [2022, race_list[4], "BOT", 7, false, false, false],
+  [2022, race_list[4], "OCO", 8, false, false, false],
+  [2022, race_list[4], "ALB", 9, false, false, false],
+  [2022, race_list[4], "STR", 10, false, false, false],
+  [2022, race_list[4], "ALO", 11, false, false, false],
+  [2022, race_list[4], "TSU", 12, false, false, false],
+  [2022, race_list[4], "RIC", 13, false, false, false],
+  [2022, race_list[4], "LAT", 14, false, false, false],
+  [2022, race_list[4], "MSC", 15, false, false, false],
+  [2022, race_list[4], "MAG", 16, true, false, false],
+  [2022, race_list[4], "VET", 17, true, false, false],
+  [2022, race_list[4], "GAS", 18, true, false, false],
+  [2022, race_list[4], "NOR", 19, true, false, false],
+  [2022, race_list[4], "ZHO", 20, true, false, false]
 ]
 
 results_list.each do |details|
