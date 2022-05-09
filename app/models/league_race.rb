@@ -1,0 +1,2 @@
+class LeagueRace < ApplicationRecord
+end

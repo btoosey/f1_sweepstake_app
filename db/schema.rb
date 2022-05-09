@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_07_213815) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_09_133932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,6 +74,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_213815) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "code", limit: 3
+  end
+
+  create_table "league_races", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "league_id", null: false
+    t.bigint "race_id", null: false
+    t.index ["league_id"], name: "index_league_races_on_league_id"
+    t.index ["race_id"], name: "index_league_races_on_race_id"
   end
 
   create_table "leagues", force: :cascade do |t|
@@ -160,6 +169,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_213815) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "choices", "race_drivers"
   add_foreign_key "choices", "user_leagues"
+  add_foreign_key "league_races", "leagues"
+  add_foreign_key "league_races", "races"
   add_foreign_key "leagues", "seasons"
   add_foreign_key "leagues", "users"
   add_foreign_key "race_drivers", "races"
