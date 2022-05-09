@@ -3,6 +3,7 @@ class Race < ApplicationRecord
   belongs_to :circuit
 
   has_many :race_drivers
+  has_many :league_races, dependent: :destroy
 
   def to_label
     "#{season.year} - #{name}"
