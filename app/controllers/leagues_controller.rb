@@ -20,6 +20,7 @@ class LeaguesController < ApplicationController
     @league = League.new(league_params)
     @league.user = current_user if current_user
     @league.season = Season.where(year: 2022).first
+    @league.generate_league_races
     if @league.save
       redirect_to leagues_path
     else
