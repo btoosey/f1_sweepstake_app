@@ -14,13 +14,13 @@ circuits_list = [
   ["Hungaroring", "Mogyoród", "Hungary"],
   ["Circuit de Spa-Francorchamps", "Stavelot", "Belgium"],
   ["Circuit Zandvoort", "Zandvoort", "Netherlands"],
-  ["Monza Circuit", "Monza", "Italy"],
+  ["Autodromo Nazionale Monza", "Monza", "Italy"],
   ["Istanbul Park", "Istanbul", "Turkey"],
   ["Marina Bay Street Circuit", "Singapore", "Singapore"],
   ["Suzuka International Racing Course", "Suzuka", "Japan"],
   ["Circuit of the Americas", "Austin", "United States"],
   ["Autódromo Hermanos Rodríguez", "Mexico City", "Mexico"],
-  ["Interlagos Circuit", "São Paulo", "Brazil"],
+  ["Autódromo José Carlos Pace", "São Paulo", "Brazil"],
   ["Yas Marina Circuit", "Abu Dhabi", "United Arab Emirates"]
 ]
 
