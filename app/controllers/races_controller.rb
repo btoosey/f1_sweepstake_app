@@ -2,15 +2,17 @@ class RacesController < ApplicationController
   before_action :set_race, only: :destroy
 
   def index
-    @races = Race.all
+    @races = policy_scope(Race)
   end
 
   def new
     @race = Race.new
+    authorize @race
   end
 
   def create
     @race = Race.new(race_params)
+    authorize @race
     @race.season = Season.last
 
     if @race.save
