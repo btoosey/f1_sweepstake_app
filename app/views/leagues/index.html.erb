@@ -1,5 +1,7 @@
 <%= link_to "Create a race", new_race_path %>
-<%= link_to "Create a league", new_league_path %>
+<% if policy(League).create? %>
+  <%= link_to "Create a league", new_league_path %>
+<% end %>
 
 <ul>
   <% @leagues.each do |league| %>

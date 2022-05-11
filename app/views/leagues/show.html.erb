@@ -1,11 +1,15 @@
 <%= @league.name %>
 
-<%= link_to "Edit", edit_league_path(@league) %>
+<% if policy(@league).update? %>
+  <%= link_to "Edit", edit_league_path(@league) %>
+<% end %>
 
-<%= link_to "Delete League",
+<% if policy(@league).update? %>
+  <%= link_to "Delete League",
     league_path(@league),
     method: :delete,
     data: {confirm: "Are you sure?"} %>
+<% end %>
 
 <% unless @league.user_leagues.where(user: current_user).exists? %>
     <%= link_to "Join League", league_user_leagues_path(@league), method: :post %>
