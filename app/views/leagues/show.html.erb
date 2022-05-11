@@ -11,9 +11,16 @@
     data: {confirm: "Are you sure?"} %>
 <% end %>
 
-<% unless @league.user_leagues.where(user: current_user).exists? %>
+<% if @league.user_leagues.where(user: current_user).exists? %>
+    <%= link_to "Leave League",
+      user_league_path(@league.user_leagues.where(user: current_user).first),
+      method: :delete,
+      data: {confirm: "Are you sure?"} %>
+<% else %>
     <%= link_to "Join League", league_user_leagues_path(@league), method: :post %>
 <% end %>
+
+
 
 <ul>
   <div>Standings</div>

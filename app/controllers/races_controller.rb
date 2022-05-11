@@ -25,6 +25,7 @@ class RacesController < ApplicationController
   end
 
   def destroy
+    authorize @race
     @race.destroy
     redirect_to races_path
   end
