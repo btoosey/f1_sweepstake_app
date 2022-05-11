@@ -1,13 +1,17 @@
-<%= link_to "Create new team_driver", new_team_driver_path %>
+<% if policy(@team_drivers) %>
+  <%= link_to "Create new team_driver", new_team_driver_path %>
+<% end %>
 
 <ul>
   <% @team_drivers.each do |team_driver| %>
     <li>
       <%= team_driver.driver.full_name %> - <%= team_driver.constructor.name %>
-      <%= link_to "Delete",
-      team_driver,
-      method: :delete,
-      data: {confirm: "Are you sure?"} %>
+      <% if policy(team_driver).destroy? %>
+        <%= link_to "Delete",
+        team_driver,
+        method: :delete,
+        data: {confirm: "Are you sure?"} %>
+      <% end %>
     </li>
   <% end %>
 </ul>

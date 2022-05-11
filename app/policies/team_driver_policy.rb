@@ -1,4 +1,4 @@
-class DriverPolicy < ApplicationPolicy
+class TeamDriverPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.role == "admin"
