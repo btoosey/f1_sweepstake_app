@@ -2,6 +2,7 @@ class ResultsController < ApplicationController
   before_action :set_result, only: [:edit, :update, :destroy]
 
   def index
+    policy_scope(Result)
     @race_drivers = RaceDriver.current_race_drivers
     @drivers = list_current_drivers(@race_drivers)
     @results = []
@@ -12,6 +13,7 @@ class ResultsController < ApplicationController
 
   def new
     @result = Result.new
+    authorize @result
   end
 
   def create
@@ -22,12 +24,15 @@ class ResultsController < ApplicationController
     else
       render :new
     end
+    authorize @result
   end
 
   def edit
+    authorize @result
   end
 
   def update
+    authorize @result
     @result.position_to_points(@result.position)
     if @result.update(result_params)
       redirect_to results_path
@@ -37,6 +42,7 @@ class ResultsController < ApplicationController
   end
 
   def destroy
+    authorize @result
     @result.destroy
     redirect_to results_path
   end
