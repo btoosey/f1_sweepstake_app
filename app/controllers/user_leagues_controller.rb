@@ -5,6 +5,7 @@ class UserLeaguesController < ApplicationController
     @league = League.find(params[:league_id])
     @user = current_user
     @user_league = UserLeague.new(league: @league, user: @user)
+    authorize @user_league
     if @user_league.save
       redirect_to league_path(@league), message: "You have successfully joined the league!"
     else
@@ -13,8 +14,10 @@ class UserLeaguesController < ApplicationController
   end
 
   def destroy
+    @league = @user_league.league
+    authorize @user_league
     @user_league.destroy
-    redirect_to leagues_path
+    redirect_to league_path(@league)
   end
 
   private

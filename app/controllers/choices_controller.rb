@@ -3,17 +3,21 @@ class ChoicesController < ApplicationController
   before_action :set_user_league, only: [:new, :create]
 
   def show
+    @current_race = @choice.race_driver.race
+    authorize @choice
   end
 
   def new
     @choice = Choice.new
     @current_race = Race.find(params[:race])
+    authorize @choice
   end
 
   def create
     @choice = Choice.new(choice_params)
     @choice.user_league = @user_league
     @choice.locked = false
+    authorize @choice
 
     if @choice.save
       redirect_to leagues_path
@@ -23,9 +27,11 @@ class ChoicesController < ApplicationController
   end
 
   def edit
+    authorize @choice
   end
 
   def update
+    authorize @choice
     if @choice.update(choice_params)
       redirect_to league_path(@choice.user_league.league.id)
     else

@@ -2,15 +2,17 @@ class RaceDriversController < ApplicationController
   before_action :set_race_driver, only: [:destroy]
 
   def index
-    @race_drivers = RaceDriver.all
+    @race_drivers = policy_scope(RaceDriver)
   end
 
   def new
     @race_driver = RaceDriver.new
+    authorize @race_driver
   end
 
   def create
     @race_driver = RaceDriver.new(race_driver_params)
+    authorize @race_driver
     if @race_driver.save
       redirect_to race_drivers_path
     else
@@ -19,6 +21,7 @@ class RaceDriversController < ApplicationController
   end
 
   def destroy
+    authorize @race_driver
     @race_driver.destroy
     redirect_to race_drivers_path
   end

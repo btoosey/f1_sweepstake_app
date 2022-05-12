@@ -2,11 +2,12 @@ class LeaguesController < ApplicationController
   before_action :set_league, only: [:show, :edit, :update, :destroy]
 
   def index
-    @leagues = League.all
+    @leagues = policy_scope(League)
     @user = current_user if current_user
   end
 
   def show
+    authorize @league
     @user_leagues = @league.user_leagues.all
     @league_races = @league.league_races
     @choice = Choice.new
@@ -14,6 +15,7 @@ class LeaguesController < ApplicationController
 
   def new
     @league = League.new
+    authorize @league
   end
 
   def create
@@ -26,12 +28,15 @@ class LeaguesController < ApplicationController
     else
       render :new
     end
+    authorize @league
   end
 
   def edit
+    authorize @league
   end
 
   def update
+    authorize @league
     if @league.update(league_params)
       redirect_to league_path(@league.id)
     else
@@ -40,6 +45,7 @@ class LeaguesController < ApplicationController
   end
 
   def destroy
+    authorize @league
     @league.destroy
     redirect_to leagues_path
   end
@@ -47,7 +53,7 @@ class LeaguesController < ApplicationController
   private
 
   def league_params
-    params.require(:league).permit(:name)
+    params.require(:league).permit(:name, :private)
   end
 
   def set_league

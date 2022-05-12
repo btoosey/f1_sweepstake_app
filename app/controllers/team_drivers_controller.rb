@@ -2,15 +2,17 @@ class TeamDriversController < ApplicationController
   before_action :set_team_driver, only: [:destroy]
 
   def index
-    @team_drivers = TeamDriver.all
+    @team_drivers = policy_scope(TeamDriver)
   end
 
   def new
     @team_driver = TeamDriver.new
+    authorize @team_driver
   end
 
   def create
     @team_driver = TeamDriver.new(team_driver_params)
+    authorize @team_driver
     if @team_driver.save
       redirect_to team_drivers_path
     else
@@ -19,6 +21,7 @@ class TeamDriversController < ApplicationController
   end
 
   def destroy
+    authorize @team_driver
     @team_driver.destroy
     redirect_to team_drivers_path
   end

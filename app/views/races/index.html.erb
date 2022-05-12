@@ -1,11 +1,15 @@
 <ul>
-  <% @races.each do |race| %>
-    <li>
-      <%= race.name %>
-      <%= link_to "Delete",
-      race,
-      method: :delete,
-      data: {confirm: "Are you sure?"} %>
-    </li>
+  <% if policy_scope(@races) %>
+    <% @races.each do |race| %>
+      <li>
+        <%= race.name %>
+        <% if policy(Race).destroy? %>
+          <%= link_to "Delete",
+          race,
+          method: :delete,
+          data: {confirm: "Are you sure?"} %>
+        <% end %>
+      </li>
+    <% end %>
   <% end %>
 </ul>

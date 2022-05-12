@@ -1,7 +1,9 @@
-<%= simple_form_for @result do |f| %>
-  <%= f.association :race_driver, label_method: :to_label %>
-  <%= f.input :position %>
-  <%= f.input :dnf %>
-  <%= f.input :dsq %>
-  <%= f.button :submit %>
+<% if policy(@result).create? %>
+  <%= simple_form_for @result do |f| %>
+    <%= f.association :race_driver, label_method: :to_label %>
+    <%= f.input :position %>
+    <%= f.input :dnf %>
+    <%= f.input :dsq %>
+    <%= f.button :submit %>
+  <% end %>
 <% end %>

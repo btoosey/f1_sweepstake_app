@@ -2,15 +2,18 @@ class DriversController < ApplicationController
   before_action :set_driver, only: :destroy
 
   def index
-    @drivers = Driver.all
+    @drivers = policy_scope(Driver)
+    @driver = Driver.new
   end
 
   def new
     @driver = Driver.new
+    authorize @driver
   end
 
   def create
     @driver = Driver.new(driver_params)
+    authorize @driver
     if @driver.save
       redirect_to drivers_path
     else
@@ -19,6 +22,7 @@ class DriversController < ApplicationController
   end
 
   def destroy
+    authorize @driver
     @driver.destroy
     redirect_to drivers_path
   end

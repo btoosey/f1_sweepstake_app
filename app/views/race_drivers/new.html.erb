@@ -1,5 +1,7 @@
-<%= simple_form_for @race_driver do |f| %>
-  <%= f.association :team_driver, label_method: :to_label %>
-  <%= f.association :race %>
-  <%= f.button :submit %>
+<% if policy(RaceDriver).create? %>
+  <%= simple_form_for @race_driver do |f| %>
+    <%= f.association :team_driver, label_method: :to_label %>
+    <%= f.association :race %>
+    <%= f.button :submit %>
+  <% end %>
 <% end %>
