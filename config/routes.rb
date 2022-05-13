@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  get 'users/show'
 
   require "sidekiq/web"
   require 'sidekiq/cron/web'
   mount Sidekiq::Web => "/sidekiq"
 
-  devise_for :users
   root to: 'leagues#index'
+  devise_for :users
+  resources :users, only: [:show]
 
   resources :leagues, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :user_leagues, only: [:create]
