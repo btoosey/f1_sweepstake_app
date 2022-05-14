@@ -1,4 +1,7 @@
-<%= link_to "Create a race", new_race_path %>
+<% if policy(Race).create? %>
+  <%= link_to "Create a race", new_race_path %>
+<% end %>
+
 <% if policy(League).create? %>
   <%= link_to "Create a league", new_league_path %>
 <% end %>
