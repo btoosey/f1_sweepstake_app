@@ -7,9 +7,9 @@ class UserLeaguesController < ApplicationController
     @user_league = UserLeague.new(league: @league, user: @user)
     authorize @user_league
     if @user_league.save
-      redirect_to league_path(@league), message: "You have successfully joined the league!"
+      redirect_to league_path(@league)
     else
-      redirect_to league_path(@league), message: "Unable to join the league"
+      redirect_to league_path(@league)
     end
   end
 
