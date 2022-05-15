@@ -26,6 +26,7 @@ class LeaguesController < ApplicationController
     if @league.save
       UserLeague.create(league: @league, user: current_user)
       redirect_to league_path(@league)
+      flash[:alert] = "You have successfully created a league!"
     else
       render :new
     end
