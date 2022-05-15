@@ -24,7 +24,9 @@ class LeaguesController < ApplicationController
     @league.season = Season.where(year: 2022).first
     @league.generate_league_races
     if @league.save
-      redirect_to leagues_path
+      UserLeague.create(league: @league, user: current_user)
+      redirect_to league_path(@league)
+      flash[:alert] = "You have successfully created a league!"
     else
       render :new
     end
