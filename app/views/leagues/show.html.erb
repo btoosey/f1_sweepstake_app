@@ -26,7 +26,7 @@
   <div>Standings</div>
   <% @user_leagues.each do |player| %>
     <li>
-      <%= player.user.email %>
+      <%= player.user.username %>
       <%= player.calculate_points %>
     </li>
   <% end %>
