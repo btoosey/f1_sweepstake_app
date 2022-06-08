@@ -4,7 +4,8 @@ race_list = [
   "Heineken Australian Grand Prix",
   "Rolex Gran Premio Del Made In Italy E Dell'Emilia-Romagna",
   "Crypto.com Miami Grand Prix",
-  "Pirelli Gran Premio De España"
+  "Pirelli Gran Premio De España",
+  "Grand Prix De Monaco"
 ]
 
 race_drivers_list = [
