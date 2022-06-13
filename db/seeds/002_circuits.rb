@@ -7,7 +7,7 @@ circuits_list = [
   ["Circuit de Barcelona-Catalunya", "Montmeló", "Spain"],
   ["Circuit de Monaco", "Monte Carlo", "Monaco"],
   ["Baku City Circuit", "Baku", "Azerbaijan"],
-  ["Circuit Gilles Villeneuve", "Montréal", "Canada"],
+  ["Circuit Gilles-Villeneuve", "Montréal", "Canada"],
   ["Silverstone Circuit", "Silverstone", "Great Britain"],
   ["Red Bull Ring", "Spielberg", "Austria"],
   ["Circuit Paul Ricard", "Le Castellet", "France"],
