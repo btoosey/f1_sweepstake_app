@@ -7,7 +7,8 @@ race_list = [
   "Pirelli Gran Premio De España",
   "Grand Prix De Monaco",
   "Azerbaijan Grand Prix",
-  "Grand Prix Du Canada"
+  "Grand Prix Du Canada",
+  "Lenovo British Grand Prix"
 ]
 
 results_list = [
@@ -198,7 +199,28 @@ results_list = [
   [2022, race_list[8], "MAG", 17, false, false, false],
   [2022, race_list[8], "TSU", 18, true, false, false],
   [2022, race_list[8], "MSC", 19, true, false, false],
-  [2022, race_list[8], "PER", 20, true, false, false]
+  [2022, race_list[8], "PER", 20, true, false, false],
+
+  [2022, race_list[9], "SAI", 1, false, false, false],
+  [2022, race_list[9], "PER", 2, false, false, false],
+  [2022, race_list[9], "HAM", 3, false, false, false],
+  [2022, race_list[9], "LEC", 4, false, false, false],
+  [2022, race_list[9], "ALO", 5, false, false, false],
+  [2022, race_list[9], "NOR", 6, false, false, false],
+  [2022, race_list[9], "VER", 7, false, false, false],
+  [2022, race_list[9], "MSC", 8, false, false, false],
+  [2022, race_list[9], "VET", 9, false, false, false],
+  [2022, race_list[9], "MAG", 10, false, false, false],
+  [2022, race_list[9], "STR", 11, false, false, false],
+  [2022, race_list[9], "LAT", 12, false, false, false],
+  [2022, race_list[9], "RIC", 13, false, false, false],
+  [2022, race_list[9], "TSU", 14, false, false, false],
+  [2022, race_list[9], "OCO", 15, true, false, false],
+  [2022, race_list[9], "GAS", 16, true, false, false],
+  [2022, race_list[9], "BOT", 17, true, false, false],
+  [2022, race_list[9], "RUS", 18, true, false, false],
+  [2022, race_list[9], "ZHO", 19, true, false, false],
+  [2022, race_list[9], "ALB", 20, true, false, false]
 ]
 
 results_list.each do |details|
